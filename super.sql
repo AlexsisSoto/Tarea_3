@@ -12,12 +12,11 @@ SELECT * FROM superpower;
 
 
 DELIMITER $$
-CREATE PROCEDURE sp_publisher_listar( IN _id INT )
+CREATE PROCEDURE sp_publisher_listar()
 BEGIN
-	SELECT publisher_name,superhero.full_name FROM publisher 
-		INNER JOIN superhero ON  superhero.id=publisher.id
-        INNER JOIN gender    ON  gender.id=publisher.id
-        INNER JOIN race      ON  race.id=publisher.id;  
+	SELECT publisher_name FROM publisher;
+	
+       
 END$$
 CALL sp_publisher_listar;
 
@@ -25,10 +24,10 @@ CALL sp_publisher_listar;
 DELIMITER $$
 CREATE PROCEDURE spu_resumen_alignment()
 BEGIN
-	SELECT alignment_id,alignment, count( alignment_id) 'total'
+	SELECT alignment_id,alignment, COUNT( alignment_id) 'total'
     FROM superhero INNER JOIN alignment ON superhero.alignment_id=alignment.id
-    group by alignment_id 
-    order by alignment;
+    GROUP BY alignment_id 
+    ORDER BY alignment;
 
 END$$
 

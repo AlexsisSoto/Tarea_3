@@ -35,9 +35,9 @@
             </thead>
             <tbody>
               <tr>
-               <?php
-               require_once 'models/listar-aligment.php';
-               ?>
+                 <?php
+                 require_once '../models/listar-aligment.php';
+                 ?>
               </tr>
             </tbody>
           </table>
@@ -60,7 +60,7 @@
    });
  
    ( function () {
-     fetch(`controller/alignment.controller.php?operacion=resumenalignment`)
+     fetch(`../controller/alignment.controller.php?operacion=resumenalignment`)
        .then(respuesta => respuesta.json())
        .then(datos =>{
            console.log(datos)
