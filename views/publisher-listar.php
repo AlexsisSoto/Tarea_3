@@ -38,7 +38,7 @@
           </div> 
           <div class="mb-4">
             <label for="">Casa de publicidad:</label>
-              <select name="" id="publisher_name" class="form-control" required>
+              <select name="" id="_publisher_id" class="form-control" required>
                  <option value="">Seleccione...</option>
               </select>
           </div>    
@@ -53,7 +53,7 @@
                 <th scope="col">Handle</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="table">
               <tr>
              
              
@@ -80,7 +80,7 @@
                  const tagoption=document.createElement("option")
                  tagoption.value=element.id
                  tagoption.innerHTML=element.publisher_name
-                 $("#publisher_name").appendChild(tagoption)
+                 $("#_publisher_id").appendChild(tagoption)
                });
             })
             .catch(e=>{
@@ -90,21 +90,21 @@
            
       })();
       (function (){
-           const  publisherId=$("_publisher_id")
+           const  publisherId=$("#_publisher_id")
            publisherId.addEventListener("change",function(){
             const id =publisherId.value
-              fetch(`../controller/publisher.controller.php?operacion=buscar{id}`)
+              fetch(`../controller/publisher.controller.php?operacion=buscar&_publisher_id=${id}`)
                 .then(respuesta => respuesta.json())
                 .then(datos=>{
                   console.log(datos)
                   const table=$("#table");
-                   datos.forEach(dato => {
+                   datos.forEach(datos => {
                      const fila =document.createElement("tr");
                      fila.innerHTML=`
-                      <td>${dato.superhero_name}</td>
-                      <td>${dato.full_name}</td>
-                      <td>${dato.gender}</td>
-                      <td>${dato.race}</td>
+                      <td>${datos.superhero_name}</td>
+                      <td>${datos.full_name}</td>
+                      <td>${datos.gender}</td>
+                      <td>${datos.race}</td>
                      `;
                      table.appendChild(fila)
                    });
