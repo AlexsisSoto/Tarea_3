@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS superhero.alignment;
 
 CREATE TABLE superhero.alignment (
   id INT NOT NULL AUTO_INCREMENT,
-  alignment varchar(10) DEFAULT NULL,
+  alignment VARCHAR(10) DEFAULT NULL,
   CONSTRAINT pk_alignment PRIMARY KEY (id)
 );
 
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS superhero.attribute;
 
 CREATE TABLE superhero.attribute (
   id INT NOT NULL AUTO_INCREMENT,
-  attribute_name varchar(200) DEFAULT NULL,
+  attribute_name VARCHAR(200) DEFAULT NULL,
   CONSTRAINT pk_attribute PRIMARY KEY (id)
 );
 
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS superhero.colour;
 
 CREATE TABLE superhero.colour (
   id INT NOT NULL AUTO_INCREMENT,
-  colour varchar(20) DEFAULT NULL,
+  colour VARCHAR(20) DEFAULT NULL,
   CONSTRAINT pk_colour PRIMARY KEY (id)
 );
 
@@ -103,7 +103,7 @@ DROP TABLE IF EXISTS superhero.gender;
 
 CREATE TABLE superhero.gender (
   id INT NOT NULL AUTO_INCREMENT,
-  gender varchar(20) DEFAULT NULL,
+  gender VARCHAR(20) DEFAULT NULL,
   CONSTRAINT pk_gender PRIMARY KEY (id)
 );
 
@@ -120,7 +120,7 @@ DROP TABLE IF EXISTS superhero.publisher;
 
 CREATE TABLE superhero.publisher (
   id INT NOT NULL AUTO_INCREMENT,
-  publisher_name varchar(50) DEFAULT NULL,
+  publisher_name VARCHAR(50) DEFAULT NULL,
   CONSTRAINT pk_publisher PRIMARY KEY (id)
 );
 
@@ -157,7 +157,7 @@ DROP TABLE IF EXISTS superhero.race;
 
 CREATE TABLE superhero.race (
   id INT NOT NULL AUTO_INCREMENT,
-  race varchar(100) DEFAULT NULL,
+  race VARCHAR(100) DEFAULT NULL,
   CONSTRAINT pk_race PRIMARY KEY (id)
 );
 

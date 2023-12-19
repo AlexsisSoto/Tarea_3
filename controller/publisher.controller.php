@@ -10,4 +10,9 @@ if(isset($_GET['operacion'])){
     $resultado=$publisher->listarpublisher();
     echo json_encode($resultado);
   }
+  if($_GET['operacion']=='buscar'){
+    $resultado=$publisher->Buscarpublisherhero(["_publisher_id"=>$_GET["_publisher_id"]]);
+  }
+  
 }
+

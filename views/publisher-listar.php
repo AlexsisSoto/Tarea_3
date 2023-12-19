@@ -89,6 +89,31 @@
 
            
       })();
+      (function (){
+           const  publisherId=$("_publisher_id")
+           publisherId.addEventListener("change",function(){
+            const id =publisherId.value
+              fetch(`../controller/publisher.controller.php?operacion=buscar{id}`)
+                .then(respuesta => respuesta.json())
+                .then(datos=>{
+                  console.log(datos)
+                  const table=$("#table");
+                   datos.forEach(dato => {
+                     const fila =document.createElement("tr");
+                     fila.innerHTML=`
+                      <td>${dato.superhero_name}</td>
+                      <td>${dato.full_name}</td>
+                      <td>${dato.gender}</td>
+                      <td>${dato.race}</td>
+                     `;
+                     table.appendChild(fila)
+                   });
+                })
+                .catch(e=>{
+                  console.error(e)
+                })
+           })
+      })();
     })
     </script>
   </body>

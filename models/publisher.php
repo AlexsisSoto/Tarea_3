@@ -21,6 +21,20 @@ class Publisher extends Conexion{
       }
 
      }
+     public function Buscarpublisherhero($data=[])
+     {
+          try{
+            $consulta=$this->pdo->prepare("CALL spu_publisher_buscar(?)");
+            $consulta->execute(
+            array($data['_publisher_id' ]));
+
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+          }catch(Exception $e)
+          {
+           die($e->getMessage());
+          }
+     }
+     
 }
 
 
